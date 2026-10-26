@@ -3,12 +3,14 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import Proof from './components/Proof';
-import Steps from './components/Steps';
+import Quote from './components/Quote';
+import News from './components/News';
 import FaqSection from './components/FaqSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DemoNotice from './components/DemoNotice';
 import StudyBanner from './components/StudyBanner';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 export default function App() {
   return (
@@ -23,11 +25,13 @@ export default function App() {
         <Services />
         <About />
         <Proof />
-        <Steps />
+        <Quote />
+        <News />
         <FaqSection />
         <Contact />
       </main>
       <Footer />
+      <FloatingWhatsApp />
       <DemoNotice />
     </>
   );

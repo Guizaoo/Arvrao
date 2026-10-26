@@ -14,16 +14,19 @@ Versão de estudo de 26/10/2026.
 - [ ] A empresa aluga ou fornece caçambas? A foto mostra um caminhão poliguindaste com caçamba, mas o site antigo não cita esse serviço.
 - [ ] O atendimento a grandes geradores é um serviço oferecido? Hoje ele foi deduzido de um artigo do site antigo.
 - [ ] Que serviços entram em "terceirização de mão de obra" (limpeza, portaria, apoio operacional etc.)?
+- [ ] Qual o endereço certo? O site antigo cita a BR-135 (Av. das Nações Unidas, nº 22, Ribeira), mas o perfil no Google Maps, usado no mapa da página, mostra R. MIN – Av. Sarney Filho, 06, Qd 01, Vila Riod (CEP 65058-825).
 - [ ] Qual o horário de atendimento?
 - [ ] O que acontece com o site atual quando a nova página entrar no ar?
 
 ## 2. O que o cliente precisa fornecer
 
 - [ ] Logotipo em alta resolução, de preferência SVG. O atual é um PNG de 789×158 tirado do site antigo.
-- [ ] De 4 a 6 fotos reais: equipe, coleta em cliente, caçambas, terceirização. Precisa de autorização de uso de imagem de quem aparece.
+- [ ] De 4 a 6 fotos reais para substituir as ilustrativas: equipe em operação, coleta em cliente, caçambas, terceirização. Precisa de autorização de uso de imagem de quem aparece.
+- [ ] Confirmação de que a empresa tem licença para usar as imagens do site antigo (limpeza, aperto de mãos e as três das notícias). Elas parecem de banco de imagens.
 - [ ] Foto do caminhão em resolução maior. A atual tem 770×520 e perde nitidez em telas grandes.
 - [ ] CNPJ e razão social para o rodapé.
-- [ ] Missão, visão e valores. O site antigo tinha esses itens, mas a página interna não está no arquivo.
+- [ ] Textos de missão (gestão ambiental), missão (terceirização), visão e valores. Hoje a seção "Conheça também" mostra "Texto a ser enviado pela empresa".
+- [ ] Os artigos completos das três notícias, se quiserem manter a seção. A cópia do site só tem os resumos, por isso os cartões não têm "Leia mais".
 - [ ] Respostas confirmadas para as perguntas frequentes.
 - [ ] Acesso ou contato de quem administra o domínio e o DNS.
 
@@ -43,7 +46,13 @@ Todas estão em `src/content.ts`. Na página, a faixa amarela no topo avisa que 
 | Serviço 4 | Terceirização de mão de obra ("sob medida") | Site anterior (2025) |
 | Quem somos | Texto sobre segurança, qualidade e parceria | Site anterior (2025), reescrito em frases curtas |
 | Estrutura | Licença; "Caminhão poliguindaste com caçambas"; atuação em São Luís/MA | Site anterior e foto |
-| Estrutura | Três espaços "Foto a enviar" | Espaços reservados |
+| Serviços (gestão ambiental) | Foto do caminhão carregando caçamba | **Ilustrativa**, Wikimedia Commons (Robin Webster, CC BY-SA 2.0) |
+| Serviços (terceirização) | Foto de equipe de limpeza | Site anterior; provável banco de imagens |
+| Quem somos | Foto de aperto de mãos | Site anterior; provável banco de imagens |
+| Quem somos | Missão, visão e valores | Títulos do site anterior; textos em branco |
+| Estrutura | Fotos "Equipe em operação" e "Caçambas e equipamentos" | **Ilustrativas**, Wikimedia Commons (Ermell, CC BY 3.0; Ximonic, CC BY 4.0) |
+| Orçamento | Formulário que abre o WhatsApp com os dados preenchidos | Proposta; não grava nem envia nada por conta própria |
+| Notícias | Três resumos e fotos | Site anterior (2025) |
 | Perguntas frequentes | Regra de grande gerador (mais de 200 litros por dia de resíduo não reciclável) | Artigo do site anterior; confirmar a regra vigente em São Luís |
 | Perguntas frequentes | Atendimento fora de São Luís; terceirização | Respostas genéricas que pedem contato |
 | Como pedir orçamento | Os três passos, sem promessa de prazo | Proposta de fluxo |
@@ -51,13 +60,13 @@ Todas estão em `src/content.ts`. Na página, a faixa amarela no topo avisa que 
 | Contato e rodapé | Horário e CNPJ aparecem como "A confirmar" | Não encontrados |
 | SEO (`index.html`) | Título e descrição da página | Derivados do conteúdo acima |
 
-A página não inclui certificações, clientes, depoimentos ou números de resultados. As fotos de banco de imagens do site anterior não foram usadas.
+A página não inclui certificações, clientes, depoimentos ou números de resultados. As fotos marcadas como **ilustrativas** são de outras empresas ou cidades e exibem o crédito exigido pela licença. Elas devem ser trocadas por fotos reais antes de publicar.
 
 ## 4. O que falta para colocar em produção
 
 1. **Responder as perguntas da seção 1** e aplicar as correções em `src/content.ts`.
 2. **Ativar o WhatsApp:** preencher `contact.whatsapp` com o número confirmado e testar no celular e no computador.
-3. **Trocar os espaços de foto** por fotos reais otimizadas (WebP, com `alt`, `width` e `height`) e usar o logotipo em alta resolução.
+3. **Trocar as fotos ilustrativas** por fotos reais otimizadas (WebP, com `alt`, `width` e `height`), confirmar a licença das imagens do site antigo e usar o logotipo em alta resolução.
 4. **Remover os sinais de estudo:** `studyMode: false` em `src/content.ts` e retirar a meta `noindex` de `index.html`.
 5. **Completar o SEO:** URL canônica, imagem de compartilhamento (og:image, 1200×630), dados estruturados `LocalBusiness` com endereço e telefone confirmados, `robots.txt` e `sitemap.xml`.
 6. **Publicar uma prévia na Vercel** (URL `*.vercel.app`) para aprovação final.

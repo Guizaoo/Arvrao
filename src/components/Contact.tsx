@@ -39,6 +39,20 @@ export default function Contact() {
           ))}
         </dl>
       </div>
+      {contact.mapQuery && (
+        <div className="container contact__map">
+          <iframe
+            title={`Localização da ${site.company.name} no mapa`}
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&z=15&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.mapQuery)}`} target="_blank" rel="noopener noreferrer">
+            Abrir no Google Maps
+          </a>
+        </div>
+      )}
     </section>
   );
 }
