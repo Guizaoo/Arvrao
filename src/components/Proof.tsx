@@ -1,5 +1,6 @@
 import { site } from '../content';
-import ImagePlaceholder from './ImagePlaceholder';
+import { asset } from '../assets';
+import Credit from './Credit';
 
 export default function Proof() {
   const { proof, contact } = site;
@@ -18,8 +19,14 @@ export default function Proof() {
           ))}
         </dl>
         <div className="gallery">
-          {proof.photos.map((label) => (
-            <ImagePlaceholder key={label} label={label} />
+          {proof.photos.map((p) => (
+            <figure key={p.file} className="photo">
+              <img src={asset(p.file)} alt={p.alt} width="900" height="675" loading="lazy" />
+              <figcaption>
+                {p.caption}
+                <Credit author={p.credit} license={p.license} source={p.source} />
+              </figcaption>
+            </figure>
           ))}
         </div>
         <p className="gallery__more">

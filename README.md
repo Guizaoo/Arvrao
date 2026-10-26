@@ -61,13 +61,25 @@ Enquanto `contact.whatsapp` estiver vazio, os botões de orçamento **não abrem
 
 Não há formulário de contato. Isso é proposital: sem backend, um formulário só simularia um envio.
 
-### Substituir os espaços de imagem
+### Formulário de orçamento
 
-Os blocos cinza com "Foto a enviar" são gerados por `ImagePlaceholder` em [src/components/](src/components/). Para usar uma foto real:
+A seção "Solicite seu orçamento" tem um formulário, mas **não há backend**. Ao enviar, os campos viram o texto de uma mensagem e o WhatsApp abre para a pessoa revisar e mandar. Sem número configurado, aparece o aviso de modo demonstração. Nada é gravado e nenhum envio é simulado.
 
-1. Exporte a foto em WebP ou JPEG, com cerca de 1600 px de largura para a primeira seção e 800 px para a galeria, de preferência abaixo de 200 KB.
-2. Coloque o arquivo em `src/assets/`.
-3. Troque o `<ImagePlaceholder ... />` por um `<img>` com `alt` descritivo, `width`, `height` e `loading="lazy"` (exceto na primeira seção).
+Há também um botão flutuante de WhatsApp no canto inferior direito, com o mesmo comportamento dos outros botões.
+
+### Imagens
+
+As imagens ficam em `src/assets/`. Em `src/content.ts` elas são referenciadas pelo nome do arquivo.
+
+- `caminhao-arvrao.jpg` e `logo-arvrao.png`: da própria empresa (site anterior).
+- `site-*.jpg`: do site anterior. Parecem de banco de imagens, então é preciso confirmar a licença.
+- `ilustrativa-*.jpg`: **ilustrativas**, do Wikimedia Commons. A página mostra "Foto ilustrativa" e o crédito do autor, que a licença exige.
+
+Para trocar uma imagem:
+
+1. Coloque a foto em `src/assets/`, em WebP ou JPEG, com cerca de 1200 px de largura e de preferência abaixo de 200 KB.
+2. Atualize o nome do arquivo em `src/content.ts`.
+3. Se for foto real, remova o campo de crédito (`credit`).
 
 ## Publicar na Vercel
 

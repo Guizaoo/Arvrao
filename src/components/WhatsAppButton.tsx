@@ -2,7 +2,7 @@ import { whatsappUrl } from '../content';
 
 export const DEMO_EVENT = 'whatsapp-demo';
 
-type Props = { children: React.ReactNode; variant?: 'primary' | 'light' | 'small' };
+type Props = { children: React.ReactNode; variant?: 'primary' | 'light' | 'small' | 'floating' };
 
 /**
  * Com número configurado: link real para o WhatsApp.

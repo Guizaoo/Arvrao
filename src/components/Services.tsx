@@ -1,4 +1,6 @@
 import { site } from '../content';
+import { asset } from '../assets';
+import Credit from './Credit';
 
 export default function Services() {
   const { services } = site;
@@ -9,20 +11,28 @@ export default function Services() {
           <h2 id="servicos-titulo">{services.title}</h2>
           <p>{services.intro}</p>
         </div>
-        <ol className="services">
-          {services.items.slice(0, 4).map((s, i) => (
-            <li key={s.title} className="service">
-              <span className="service__num" aria-hidden="true">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <p className="service__segment">{s.segment}</p>
+        <div className="segments">
+          {services.segments.map((s) => (
+            <article key={s.title} className="segment">
+              <figure className="segment__media">
+                <img src={asset(s.image)} alt={s.imageAlt} width="770" height="520" loading="lazy" />
+                {s.credit && <Credit {...s.credit} />}
+              </figure>
+              <div className="segment__body">
                 <h3>{s.title}</h3>
-                <p>{s.description}</p>
+                <p>{s.text}</p>
+                <ul>
+                  {s.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <a className="link-arrow" href="#orcamento">
+                  Pedir orçamento <span aria-hidden="true">→</span>
+                </a>
               </div>
-            </li>
+            </article>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
